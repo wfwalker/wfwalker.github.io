@@ -8,6 +8,10 @@ permalink: /:year/:month/:day/:title/
 markdown: kramdown
 highlighter: rouge
 
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
 # Excludes
 exclude:
   - Gemfile
