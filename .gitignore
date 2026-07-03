@@ -1,0 +1,23 @@
+# Jekyll build output
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# Eleventy build output
+_site/
+
+# Node dependencies (if using Eleventy or modern build tools later)
+node_modules/
+package-lock.json
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Developer environment / local overrides
+.env
+.env*.local
+.sass-cache/
+.project
+.idea/
+.vscode/
