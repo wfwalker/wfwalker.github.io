@@ -1,7 +1,11 @@
 source "https://rubygems.org"
 
-# Use the github-pages gem to align local versions with GitHub Pages
-gem "github-pages", "~> 228", group: :jekyll_plugins
+gem "jekyll", "~> 4.3.4"
+gem "webrick", "~> 1.8"
+gem "csv", "~> 3.3"
+gem "base64", "~> 0.2"
 
-# If on macOS, we may need webrick for Ruby 3.0+
-gem "webrick", "~> 1.7"
+group :jekyll_plugins do
+  gem "jekyll-feed", "~> 0.17"
+  gem "jekyll-sitemap", "~> 1.4"
+end
