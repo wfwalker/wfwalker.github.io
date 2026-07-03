@@ -1,0 +1,19 @@
+title: "Software Walker"
+description: "examining the unexamined life of software"
+url: "https://softwarewalker.com"
+baseurl: ""
+permalink: /:year/:month/:day/:title/
+
+# Jekyll configurations
+markdown: kramdown
+highlighter: rouge
+
+# Excludes
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE.txt
+  - scratch/
+  - .git/
+  - .github/

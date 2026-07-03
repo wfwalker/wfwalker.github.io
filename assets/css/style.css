@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+/* --- Design System CSS Tokens --- */
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  
+  /* Light Mode Colors (default) */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --accent: #4f46e5;       /* Indigo */
+  --accent-gradient: linear-gradient(135deg, #4f46e5, #7c3aed);
+  --border: #e2e8f0;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --radius: 12px;
+  --radius-sm: 6px;
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Mode Colors */
+    --bg-primary: #090d16;
+    --bg-secondary: #111827;
+    --bg-tertiary: #1f2937;
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --text-muted: #6b7280;
+    --accent: #818cf8;     /* Light Indigo */
+    --accent-gradient: linear-gradient(135deg, #818cf8, #a78bfa);
+    --border: #1f2937;
+  }
+}
+
+/* --- Base Elements --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  font-size: 1.05rem;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin-bottom: 0.75em;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; margin-top: 1.5em; }
+h3 { font-size: 1.4rem; margin-top: 1.25em; }
+
+p {
+  margin-bottom: 1.25em;
+}
+
+/* --- Layout --- */
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Header / Navigation --- */
+.site-header {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  padding: 30px 0;
+  margin-bottom: 50px;
+}
+
+.site-branding {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.site-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.site-title a {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.site-description {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  list-style: none;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.site-nav a {
+  color: var(--text-secondary);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.site-nav a:hover,
+.site-nav .active a {
+  color: var(--accent);
+  background-color: var(--bg-tertiary);
+}
+
+/* --- Main Content Area --- */
+.main-content {
+  min-height: 70vh;
+  padding-bottom: 80px;
+}
+
+/* --- Posts List (Home) --- */
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.post-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  position: relative;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent);
+}
+
+.post-card-header {
+  margin-bottom: 15px;
+}
+
+.post-card-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.post-card-title {
+  font-size: 1.8rem;
+  margin-bottom: 0;
+}
+
+.post-card-title a {
+  color: var(--text-primary);
+}
+
+.post-card:hover .post-card-title a {
+  color: var(--accent);
+}
+
+.post-card-excerpt {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.post-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.meta-badge {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: lowercase;
+}
+
+.category-badge {
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+.tag-badge {
+  background-color: rgba(79, 70, 229, 0.08);
+  color: var(--accent);
+}
+
+/* --- Single Post Detail --- */
+.post-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.post-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  line-height: 1.15;
+}
+
+.post-meta {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.post-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  margin: 1.5em 0;
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- Figure & Captions --- */
+.wp-caption, figure {
+  margin: 2em 0;
+  text-align: center;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  padding: 15px;
+  border-radius: var(--radius);
+}
+
+.wp-caption img, figure img {
+  margin: 0 0 10px 0 !important;
+}
+
+.wp-caption-text, figcaption {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* --- Blockquotes --- */
+blockquote {
+  border-left: 4px solid var(--accent);
+  padding-left: 20px;
+  margin: 2em 0;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* --- Code & Syntax Highlighting --- */
+pre, code {
+  font-family: Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9rem;
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+}
+
+code {
+  padding: 2px 6px;
+}
+
+pre {
+  padding: 20px;
+  overflow-x: auto;
+  margin: 2em 0;
+}
+
+pre code {
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+/* --- Footer --- */
+.site-footer {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: 40px 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 80px;
+}
+
+.site-footer p {
+  margin-bottom: 5px;
+}
